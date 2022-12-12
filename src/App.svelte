@@ -1,22 +1,23 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import NavBar from './Components/NavBar.svelte';
+  import svelteLogo from "./assets/svelte.svg";
 
-  import Router from 'svelte-spa-router';
-  import Home from './Components/Home.svelte';
-    import MyBooks from './Components/MyBooks.svelte';
-    import NotFound from './Components/NotFound.svelte';
-    import BookDetails from './Components/Subcomponents/BookDetails.svelte';
-    import AllBooks from './Components/AllBooks.svelte';
+  import NavBar from "./Components/NavBar.svelte";
+  import Router from "svelte-spa-router";
+  import Home from "./Components/Home.svelte";
+  import Reviews from "./Components/Reviews.svelte";
+  import NotFound from "./Components/NotFound.svelte";
+  import AllBooks from "./Components/AllBooks.svelte";
+  import Footer from "./Components/Footer.svelte";
+  import Book from "./Components/Book.svelte"
 
-    const routes = {
-        '/': Home,
-        '/all_books': AllBooks,
-        '/my_books': MyBooks,
-        '/book_details/:id': BookDetails,
+  const routes = {
+    "/": Home,
+    "/all_books": AllBooks,
+    "/reviews": Reviews,
+    "/book_details/:id": Book,
 
-        '*': NotFound
-    }
+    "*": NotFound,
+  };
 </script>
 
 <main>
@@ -24,26 +25,20 @@
   <div class="page-container">
     <Router {routes} />
   </div>
-  
+  <Footer />
 </main>
 
 <style>
+  main {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   .page-container {
     margin-top: 100px;
   }
 
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
 </style>
