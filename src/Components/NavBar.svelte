@@ -1,14 +1,4 @@
 <script>
-//   var prevScrollpos = window.pageYOffset;
-// window.onscroll = function() {
-//   var currentScrollPos = window.pageYOffset;
-//   if (prevScrollpos > currentScrollPos) {
-//     document.getElementById("navbar").style.top = "0";
-//   } else {
-//     document.getElementById("navbar").style.top = "-100px";
-//   }
-//   prevScrollpos = currentScrollPos;
-// }
 </script>
 
 <body>
@@ -72,6 +62,7 @@
     box-shadow: 0 0 10px 0 black;
     margin-bottom:-10px;
     z-index: 2;
+    width: 100%;
     
   }
   body {
