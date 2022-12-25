@@ -136,7 +136,7 @@
     font-size: 35px;
     margin-left: -800px;
   }
-
+/* 
   .title-reviews {
     font-family: var(--font-family-bitter);
     color: black;
@@ -144,7 +144,7 @@
     font-size: 35px;
     margin-left: -900px;
     margin-left: -800px;
-  }
+  } */
   .home-page {
     align-items: center;
     background-color: var(--white);
@@ -154,9 +154,11 @@
     /* gap: 101px; */
     height: 2400px;
     overflow: hidden;
-    width: 1365px;
+    width: 100%;
+    height: 100%;
   }
   .pexels-bg {
+    width: 100%;
     margin-bottom: 50px;
   }
 
@@ -200,12 +202,12 @@
     width: 290px;
   }
 
-  .explore-all-books {
+  /* .explore-all-books {
     height: 36px;
     margin-left: 530px;
-    /* margin-top: 650px; */
+    margin-top: 650px;
     width: 320px;
-  }
+  } */
 
   .left-4 {
     height: 71px;
@@ -345,12 +347,12 @@
     width: 400px;
   }
 
-  .rating {
+  /* .rating {
     height: 28px;
     margin-left: 43px;
     margin-top: -1197px;
     width: 166px;
-  }
+  } */
   .overlap-group3 {
     align-items: flex-start;
     background-color: var(--concrete);
@@ -400,7 +402,7 @@
     width: 196px;
   }
 
-  .group-8476 {
+  /* .group-8476 {
     align-items: flex-start;
     display: flex;
     height: 382px;
@@ -417,7 +419,7 @@
     margin-top: -1270px;
     object-fit: cover;
     width: 120px;
-  }
+  } */
 
   .you-are-the-dead {
     font-family: Poppins;
