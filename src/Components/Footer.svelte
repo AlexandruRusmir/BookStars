@@ -14,7 +14,7 @@
         padding: 70px;
         font-size: large;
         height: 146px;
-        width: 1365px;
+        width: 100%;
         background-color: rgb(243, 228, 160);
         text-align: center;
         display: block;
