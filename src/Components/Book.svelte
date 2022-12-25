@@ -5,11 +5,11 @@
     <div class="book-page" id="book-page">
         <div class="overlap-group5">
             <h1 class="book-title">'Book Title'</h1>
-            <div
+            <!-- <div
                 class="the-adventures-of-tom-sawyer"
-                src="the-adventures-of-tom-sawyer-1.jpg"
+                src="\src\img\-the-adventures-of-tom-sawyer-@1x.jpg"
                 alt="The Adventures of Tom Sawyer"
-            >
+            > -->
                 <div class="book-details">
                     <!-- svelte-ignore a11y-img-redundant-alt -->
                     <img
@@ -47,7 +47,7 @@
                   </p>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </body>
 
 <style>
@@ -97,6 +97,7 @@
         margin-top: 50px;
         min-width: 1373px;
         padding: 38.6px 85.4px;
+        width:100%;
     }
 
     .the-adventures-of-tom-sawyer {
