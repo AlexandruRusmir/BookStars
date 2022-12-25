@@ -123,7 +123,7 @@
   flex-direction: column;
   height: 2609px;
   overflow: hidden;
-  width: 1365px;
+  width: 100%;
 }
 
 .flex-row-1 {
@@ -570,9 +570,8 @@
   background-color: rgb(243, 228, 160);
   display: flex;
   height: 111px;
-  margin-right: -3.97px;
+  width:100%;
   margin-top: 50px;
-  min-width: 1373px;
   padding: 38.6px 85.4px;
 }
 
