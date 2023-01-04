@@ -36,7 +36,7 @@
         <div>
             <div class="my-2">
                 <div>
-                    <span>Username: </span>
+                    <span>Username X: </span>
                 </div>
                 <div>
                     <input placeholder="Enter your username" on:input={e => {name = e.target.value}}>
