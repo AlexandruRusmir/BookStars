@@ -1,4 +1,24 @@
 <script>
+  import { push } from 'svelte-spa-router';
+  import { jwt_token } from "../store";
+
+  let userHasJwtToken = false;
+  jwt_token.subscribe(val => {
+    if (val === '') {
+      userHasJwtToken = false;
+    }
+    else {
+      userHasJwtToken = true;
+    }
+  });
+
+  const goToLoginPage = () => {
+    push('#/login')
+  }
+
+  const logout = () => {
+    jwt_token.set('');
+  }
 </script>
 
 <body>
@@ -28,9 +48,15 @@
               <a class="nav-link" href="#/forum">Forum</a>
             </li>
             <li>
-              <button type="submit" class="btn btn-link btn-logout"
-                >Logout</button
-              >
+              {#if !userHasJwtToken}
+                <button type="submit" class="btn btn-link btn-logout" on:click={goToLoginPage}
+                  >Login</button
+                >
+              {:else}
+                <button type="submit" class="btn btn-link btn-logout" on:click={logout}
+                  >Logout</button
+                >
+              {/if}
             </li>
           </ul>
         </div>

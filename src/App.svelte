@@ -9,12 +9,16 @@
   import AllBooks from "./Components/AllBooks.svelte";
   import Footer from "./Components/Footer.svelte";
   import Book from "./Components/Book.svelte"
+  import Login from "./Components/Login.svelte";
+  import Register from "./Components/Register.svelte";
 
   const routes = {
     "/": Home,
     "/all_books": AllBooks,
     "/reviews": Reviews,
     "/book_details/:id": Book,
+    "/login": Login,
+    "/register": Register,
 
     "*": NotFound,
   };
