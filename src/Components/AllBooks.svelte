@@ -3,7 +3,7 @@
     import BookCard from "./Subcomponents/BookCard.svelte";
 
     const getBooks = async () => {
-        let responseData = {list_of_books: listOfBooksMockData};
+        let responseData = {listOfBooks: listOfBooksMockData};
         await fetch(`http://127.0.0.1:5000/books`, {
             mode: 'cors',
         }).then((response) => response.json())
