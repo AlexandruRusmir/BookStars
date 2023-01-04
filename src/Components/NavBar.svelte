@@ -1,4 +1,5 @@
 <script>
+  // @ts-ignore
   import { push } from 'svelte-spa-router';
   import { jwt_token } from "../store";
 
