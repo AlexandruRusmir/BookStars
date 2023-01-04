@@ -33,7 +33,7 @@
 <body class="align">
     <div class="grid align__item">
         <div class="login">
-            <h2 style="color: rgb(243, 228, 160); font-weight: 200">Login</h2>
+            <h2 style="color: rgb(243, 221, 126); font-weight: 200">Login</h2>
             <form action="" method="post" class="form">
                 <div class="form__field">
                     <div>
@@ -84,7 +84,13 @@
 
 <style>
     .error-message {
-        color: rgb(235, 42, 42);
+        color: rgb(235, 42, 42); 
+    }
+
+    .nav-link:hover{
+        font-style: italic;
+        font-weight: 300;
+        color:rgb(58, 39, 39);
     }
 
     * {

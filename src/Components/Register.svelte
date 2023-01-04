@@ -72,7 +72,7 @@
 <body class="align">
     <div class="grid align__item">
         <div class="register">
-            <h2 style="color: rgb(243, 228, 160); font-weight: 200">
+            <h2 style="color: rgb(243, 221, 126); font-weight: 200">
                 Register
             </h2>
             <form action="" method="post" class="form">
