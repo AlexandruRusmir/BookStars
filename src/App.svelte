@@ -4,7 +4,6 @@
   import NavBar from "./Components/NavBar.svelte";
   import Router from "svelte-spa-router";
   import Home from "./Components/Home.svelte";
-  import Reviews from "./Components/Reviews.svelte";
   import NotFound from "./Components/NotFound.svelte";
   import AllBooks from "./Components/AllBooks.svelte";
   import Footer from "./Components/Footer.svelte";
@@ -15,7 +14,6 @@
   const routes = {
     "/": Home,
     "/all_books": AllBooks,
-    "/reviews": Reviews,
     "/book_details/:id": Book,
     "/login": Login,
     "/register": Register,

@@ -1,53 +1,99 @@
 <script>
+// @ts-nocheck
+
+    import { bookMockData, reviewsMockData } from '../mockData/mockData';
+    import AddReview from './AddReview.svelte';
+
+// @ts-nocheck
+    import Reviews from './Reviews.svelte';
+    export let params = {};
+    
+    const getBookData = async () => {
+        let responseData = {
+            bookData: bookMockData,
+            reviews: reviewsMockData
+        };
+        await fetch(`http://127.0.0.1:5000/book/${params.id}`, {
+            mode: 'cors',
+        }).then((response) => response.json())
+        .then((data) => {
+            responseData = data;
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+
+        return responseData;
+    }
 </script>
 
 <body>
-    <div class="book-page" id="book-page">
-        <div class="overlap-group5">
-            <h1 class="book-title">'Book Title'</h1>
-            <!-- <div
-                class="the-adventures-of-tom-sawyer"
-                src="\src\img\-the-adventures-of-tom-sawyer-@1x.jpg"
-                alt="The Adventures of Tom Sawyer"
-            > -->
+    {#await getBookData() then data}     
+        <div id="book-page">
+            <div>
+                <h1 class="book-title text-center">{data.bookData.name}</h1>
+                <!-- <div
+                    class="the-adventures-of-tom-sawyer"
+                    src="\src\img\-the-adventures-of-tom-sawyer-@1x.jpg"
+                    alt="The Adventures of Tom Sawyer"
+                > -->
                 <div class="book-details">
                     <!-- svelte-ignore a11y-img-redundant-alt -->
                     <img
                         class="book-picture"
-                        src="\src\img\book4.png"
+                        src={data.bookData.imageUrl}
                         alt="Picture of Book"
                     />
                 </div>
-                <img
-                    class="rating"
-                    src="\src\img\rating-1@2x.png"
-                    alt="Rating"
+                <div class="d-flex align-items-center justify-content-center">
+                    <img
+                        class="rating"
+                        src="\src\img\rating-1@2x.png"
+                        alt="Rating"
+                    />
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                    <div
+                        class="pub-date-1876-page valign-text-middle bitter-light-black-20px"
+                    >
+                        <div class="row mt-2"
+                        ><div class="col-sm-4 bitter-light-black-20px">
+                                Pub Date:
+                                <span class="bitter-normal-black-20px">
+                                    {data.bookData.publishYear}
+                                </span>
+                            </div>
+                            <div class="col-sm-4 bitter-light-black-20px">Page Count:
+                                <span class="bitter-normal-black-20px">
+                                    {data.bookData.pageCount}
+                                </span>
+                            </div>
+                            <div class="bitter-light-black-20px col-sm-4">Publisher:
+                                <span class="bitter-normal-black-20px">
+                                    {data.bookData.publisher}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <p class="description valign-text-middle bitter-normal-black-20px">
+                        {data.bookData.description}
+                    </p>
+            </div>
+            <div class="my-5">
+                <AddReview
+                    bookId={data.bookData.id}
                 />
-                <p
-                    class="pub-date-1876-page valign-text-middle bitter-light-black-20px"
-                >
-                    <span
-                        ><span class="bitter-light-black-20px"
-                            >Pub Date:
-                        </span><span class="bitter-normal-black-20px"
-                            >1876&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
-                        ><span class="bitter-light-black-20px">Page Count:</span
-                        ><span class="bitter-normal-black-20px">
-                            272&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
-                        ><span class="bitter-light-black-20px">Publisher:</span
-                        ><span class="bitter-normal-black-20px">
-                            Penguin Classics</span
-                        >
-                    </span>
-                </p>
-                <p class="description valign-text-middle bitter-normal-black-20px">
-                    "The Adventures of Tom Sawyer," written in 1876, is one of the best-loved and most quoted works of American author Mark Twain (whose real
-                    name was Samuel Langhorne Clemens). The novel, which sold slowly at first for the author, can be appreciated on multiple levels. Children
-                    can enjoy the adventure story, and adults can appreciate the satire.
-                  </p>
+            </div>
+            <div>
+                <Reviews
+                    imageUrl={data.bookData.imageUrl}
+                    reviews={data.reviews}
+                />
             </div>
         </div>
     <!-- </div> -->
+    {/await}
 </body>
 
 <style>
@@ -116,7 +162,6 @@
 
     .rating {
   height: 37px;
-  margin-left: 450px;
   width: 210px;
 }
 

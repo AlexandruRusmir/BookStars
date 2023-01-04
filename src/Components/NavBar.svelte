@@ -39,9 +39,6 @@
           <ul class="navbar">
             <li class="nav-item"><a class="nav-link" href="#/">Home</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="#/reviews">Reviews</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#/all_books">Books</a>
             </li>
             <li class="nav-item">

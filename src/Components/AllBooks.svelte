@@ -20,7 +20,7 @@
 <body>
     <div class="row mx-2">
         {#await getBooks() then data}
-            {#each data.list_of_books as book}
+            {#each data.listOfBooks as book}
                     <div class="col-lg-4 col-md-6 col-xs-12 d-flex align-items-center justify-content-center my-4">
                         <BookCard 
                             book={book}
