@@ -1,6 +1,35 @@
 <script>
+  // @ts-nocheck
+    import { jwt_token } from "../../store";
     export let imageUrl;
     export let review;
+
+    let jwtToken;
+    jwt_token.subscribe(jwt => jwtToken = jwt);
+
+    const appreciateReviewRequest = async (likeOrNot) => {
+      console.log(2);
+      console.log(likeOrNot);
+      let responseData;
+        await fetch(`http://127.0.0.1:5000/appreciate_review/${review.id}`, {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            headers: {
+                'authorization-token': jwtToken,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              like: likeOrNot
+            })
+        }).then((response) => response.json())
+          .then((data) => {
+              responseData = data;
+          })
+          .catch((error) => {
+              console.error("Error:", error);
+          });
+    }
 </script>
 
 <body>
@@ -24,13 +53,14 @@
         <div class="//rectangle-4633"></div>
         <div class="//rectangle-4674"></div>
         <div class="//rectangle-4675"></div>
-        <button class="//btn">
+        <button class="//btn" on:click={appreciateReviewRequest(true)}>
           <img
           class="//like-10"
           src="\src\img\like-10@2x.png"
           alt="like 10"
         /></button>
-        <button class="btn"> <img
+        <button class="btn" on:click={appreciateReviewRequest(false)}> 
+          <img
           class="//like-15"
           src="\src\img\like-15-1@2x.png"
           alt="like 15"

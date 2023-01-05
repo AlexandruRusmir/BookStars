@@ -1,40 +1,37 @@
 <script>
     // @ts-nocheck
     import { jwt_token } from "../store";
-    import { push } from "svelte-spa-router";
-
+    import { push } from 'svelte-spa-router';
     let name = "";
     let password = "";
     let loginError = false;
 
     const sendLoginRequest = async () => {
         let responseData;
+        console.log('Basic ' + btoa(name + ':' + password));
         await fetch(`http://127.0.0.1:5000/login`, {
-            method: "POST",
-            mode: "cors",
-            cache: "no-cache",
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
             headers: {
-                Authorization: "Basic " + btoa(name + ":" + password),
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                responseData = data;
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-
-        jwt_token.set(responseData.token ?? "");
-        push("#/");
+                'Authorization': ('Basic ' + btoa(name + ':' + password))
+            }
+        }).then((response) => response.json())
+        .then((data) => {
+            responseData = data;
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+        console.log(responseData);
+        jwt_token.set(responseData.token ?? '');
+        push('#/')
     };
 </script>
 
 <body class="align">
     <div class="grid align__item">
-        <div class="login">
+        <div class="login form">
             <h2 style="color: rgb(243, 221, 126); font-weight: 200">Login</h2>
-            <form action="" method="post" class="form">
                 <div class="form__field">
                     <div>
                         <div class="my-2">
@@ -77,7 +74,6 @@
                 {/if}
                 <button class="mt-3" on:click={sendLoginRequest}>Login</button>
                 <a class="nav-link" href="#/register">Don't have an account?</a>
-            </form>
         </div>
     </div>
 </body>

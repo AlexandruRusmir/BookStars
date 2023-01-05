@@ -1,4 +1,17 @@
 <script>
+  const getTopReviews = async () => {
+      let responseData = {};
+      await fetch(`http://127.0.0.1:5000/top_reviews`, {
+          mode: 'cors',
+      }).then((response) => response.json())
+      .then((data) => {
+          responseData = data;
+      }).catch((error) => {
+          console.error('Error:', error);
+      });
+
+      return responseData;
+  };
 </script>
 
 <body>
@@ -41,85 +54,80 @@
           Science &amp;<br />Nature
         </div>
       </div>
-
-      <div class="component-frame">
-        <div class="f">
-          <div class="f-item">
-            <div class="overlap-group">
-              <div class="rectangle-170" />
-              <!-- <div class="group-8476">
-                <img
-                  class="ellipse-217"
-                  src="\src\img\rating-3@2x.png"
-                  alt="Ellipse 217"
-                /><img
-                  class="rating"
-                  src="\src\img\rating-3@2x.png"
-                  alt="Rating"
-                />
-              </div> -->
+      {#await getTopReviews() then data}
+        <div class="component-frame">
+          <div class="f">
+            <div class="f-item">
+              <div class="overlap-group">
+                <div class="rectangle-170" />
+                <!-- <div class="group-8476">
+                  <img
+                    class="ellipse-217"
+                    src="\src\img\rating-3@2x.png"
+                    alt="Ellipse 217"
+                  /><img
+                    class="rating"
+                    src="\src\img\rating-3@2x.png"
+                    alt="Rating"
+                  />
+                </div> -->
+              </div>
             </div>
-          </div>
-          <div class="f-item">
-            <div class="overlap-group1">
-              <div class="card-name">Lioness M</div>
+            <div class="f-item">
+              <div class="overlap-group1">
+                <div class="card-name">{data.topReviews[0].userName}</div>
+              </div>
             </div>
-          </div>
-          <div class="f-item">
-            <div class="overlap-group2">
-              <div class="card-name">John Smith</div>
+            <div class="f-item">
+              <div class="overlap-group2">
+                <div class="card-name">{data.topReviews[1].userName}</div>
+              </div>
             </div>
-          </div>
-          <div class="f-item">
-            <div class="overlap-group3">
-              <div class="card-name">Susan Yara</div>
+            <div class="f-item">
+              <div class="overlap-group3">
+                <div class="card-name">{data.topReviews[2].userName}</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <img
-        class="recent-reviews"
-        src="\src\img\recent-reviews@1x.jpg"
-        alt="Recent Reviews"
-      />
-      <a href="home-page.html">
+        <img
+          class="recent-reviews"
+          src="\src\img\recent-reviews@1x.jpg"
+          alt="Recent Reviews"
+        />
+        <a href="home-page.html">
+          <button
+            ><img
+              class="left-3"
+              src="\src\img\left-3@1x.jpg"
+              alt="left 3"
+            /></button
+          >
+        </a>
         <button
           ><img
-            class="left-3"
-            src="\src\img\left-3@1x.jpg"
-            alt="left 3"
-          /></button
-        >
-      </a>
-      <button
-        ><img
-          class="left-4"
-          src="\src\img\left-4@1x.jpg"
-          alt="left 4"
-        /></button>
-      <!-- svelte-ignore a11y-img-redundant-alt -->
-      <img class="image-47" src="\src\img\image-47@2x.png" alt="image 47" />
+            class="left-4"
+            src="\src\img\left-4@1x.jpg"
+            alt="left 4"
+          /></button>
+        <!-- svelte-ignore a11y-img-redundant-alt -->
+        <img class="image-47" src="\src\img\image-47@2x.png" alt="image 47" />
 
-      <p class="in-doanes-debut-nov poppins-normal-shark-20px">
-        In Doane’s debut novel, a young man embarks on a journey of
-        self-discovery with surprising results. <br />An unnamed protagonist
-        (The Narrator) is [...]
-      </p>
-      <p class="the-hype-around-this poppins-normal-shark-20px">
-        The hype around this book has been unquestionable and, admittedly, that
-        made me both eager to get my hands on it and terrified to read it. I
-        mean, what if I was to be the […]
-      </p>
-      <p class="you-are-the-dead poppins-normal-shark-20px">
-        YOU. ARE. THE. DEAD. Oh my God. I got the chills so many times toward
-        the end of this book. It completely blew my mind. It managed to surpass
-        [...]
-      </p>
-      <img class="rating-2" src="\src\img\rating@2x.png" alt="Rating" /><img
-        class="rating-3"
-        src="\src\img\rating-1@2x.png"
-        alt="Rating"
-      /><img class="rating-4" src="\src\img\rating-2@2x.png" alt="Rating" />
+        <p class="in-doanes-debut-nov poppins-normal-shark-20px">
+          {data.topReviews[0].text}
+        </p>
+        <p class="the-hype-around-this poppins-normal-shark-20px">
+          {data.topReviews[1].text}
+        </p>
+        <p class="you-are-the-dead poppins-normal-shark-20px">
+          {data.topReviews[2].text}
+        </p>
+        <img class="rating-2" src="\src\img\rating@2x.png" alt="Rating" /><img
+          class="rating-3"
+          src="\src\img\rating-1@2x.png"
+          alt="Rating"
+        /><img class="rating-4" src="\src\img\rating-2@2x.png" alt="Rating" />
+      {/await}
     </div>
   </div>
 </body>

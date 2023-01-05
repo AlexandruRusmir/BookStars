@@ -75,8 +75,7 @@
             <h2 style="color: rgb(243, 221, 126); font-weight: 200">
                 Register
             </h2>
-            <form action="" method="post" class="form">
-                <div class="form__field">
+                <div class="form__field form">
                     <div>
                         <div class="my-2">
                             <div>
@@ -144,7 +143,6 @@
                         <a class="nav-link" href="#/login"
                             >Already have an account?
                         </a>
-            </form>
         </div>
     </div>
     </body>
