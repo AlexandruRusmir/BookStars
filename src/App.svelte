@@ -18,7 +18,8 @@
     "/book_details/:id": Book,
     "/login": Login,
     "/register": Register,
-    "/my_reviews": MyReviews
+    "/my_reviews": MyReviews,
+    
     "*": NotFound,
   };
 </script>
