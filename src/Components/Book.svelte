@@ -23,7 +23,9 @@
                 },
             }).then((response) => response.json())
             .then((data) => {
-                responseData = data;
+                if (data.message != 'a valid token is missing') {
+                    responseData = data;
+                }
             }).catch((error) => {
                 console.error('Error:', error);
             });
