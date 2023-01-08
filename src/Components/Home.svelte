@@ -555,7 +555,7 @@
     --font-family-poppins: "Poppins";
   }
 
-  .poppins-extra-light-black-20px {
+  /* .poppins-extra-light-black-20px {
     color: var(--black);
     font-family: var(--font-family-poppins);
     font-size: var(--font-size-s);
@@ -575,5 +575,5 @@
     font-size: var(--font-size-m);
     font-weight: 600;
     font-style: normal;
-  }
+  } */
 </style>

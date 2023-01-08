@@ -100,7 +100,8 @@
     { color: #ffca08 ;  } /* Set yellow color when star hover */
 
     .add-review-box {
-        background-color: #dedede;
+        font-family: Bitter;
+        background-color: none;
     }
 
     .review-input-style {

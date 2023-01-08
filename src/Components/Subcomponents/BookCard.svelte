@@ -11,8 +11,12 @@
 <div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="book-card" on:click={viewBookDetailsPage}>
-        <p>Title: {book.name}</p>
-        <p>Author: {book.author}</p>
+        <p>
+            <span class="bolded">Title:</span> &nbsp;"{book.name}"
+        </p>
+        <p>
+            <span class="bolded">Author:</span> &nbsp;{book.author}
+        </p>
         <div class="d-flex align-items-center justify-content-center">
             <img class="book-image" src={book.imageUrl} alt="Book"/>
         </div>
@@ -20,21 +24,34 @@
 </div>
 
 <style>
+    .bolded{
+        color: rgba(0, 0, 0, 0.686);
+        font-weight: bold;
+    }
+    p{
+        font-weight: 400;
+        text-align: center;
+        margin: 10px 0 18px 0;
+    }
     .book-card {
         padding: 10px;
         width: 300px;
-        height: 400px;
+        height: 450px;
         border-radius: 8px;
-        background-color: #080a3f;
-        color: #ffffff;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0, 0.212);
+        background-color: rgba(243, 228, 160, 0.233);
+        color: black;
     }
 
     .book-card:hover {
         cursor: pointer;
-        filter: drop-shadow(0 0 0.5em #646cffaa);
+        filter: drop-shadow(0 0 0.5em #752f0049);
     }
 
     .book-image {
+        border-radius: 5px;
         max-height: 300px;
         max-width: 300px;
     }
