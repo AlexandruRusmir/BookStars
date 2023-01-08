@@ -1,5 +1,5 @@
 <script>
-  import { topReviewsMockData } from "../mockData/mockData";
+  import { topReviewsMockData, listOfBooksMockData } from "../mockData/mockData";
 
   const getTopReviews = async () => {
       let responseData = {topReviews: topReviewsMockData};
@@ -11,9 +11,23 @@
       }).catch((error) => {
           console.error('Error:', error);
       });
-console.log(responseData);
+
       return responseData;
   };
+
+  const getBooks = async () => {
+        let responseData = {listOfBooks: listOfBooksMockData};
+        await fetch(`http://127.0.0.1:5000/books`, {
+            mode: 'cors',
+        }).then((response) => response.json())
+        .then((data) => {
+            responseData = data;
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+
+        return responseData;
+    };
 </script>
 
 <body>
