@@ -30,7 +30,7 @@
   <header>
     <div class="flex-row">
       <img class="logo" src="\src\img\logo@1x.jpg" alt="logo" />
-      <h1 style="font-size:3.5vw;font-weight:bold">BookStars</h1>
+      <h1 style="font-size:3.3vw;font-weight:bold">BookStars</h1>
 
       <nav>
         <div class="overlap-group8">
@@ -70,14 +70,6 @@
       </nav>
     </div>
   </header>
-  <!-- <img
-  class="pexels-bg"
-  src="\src\img\pexels-cottonbro-4861347-1@1x.png"
-  alt="pexels-cottonbro-4861347 1"
-/>
-  <h1 class="the-place-where-you valign-text-middle">
-    The place where you don't only find new books, but also new opinions ...
-  </h1> -->
 </body>
 
 <style>
@@ -135,7 +127,7 @@
     display: flex;
     height: 90px;
     justify-content: flex-start;
-    margin-left: 120px;
+    margin-left: 350px;
     width: 900px;
     /* min-width: 700px; */
     padding: 31px 20px;

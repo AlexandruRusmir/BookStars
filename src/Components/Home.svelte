@@ -1,4 +1,3 @@
-
 <script>
 // @ts-nocheck
   import { push } from "svelte-spa-router";
@@ -234,7 +233,7 @@
     width: 965px;
   }
   .overlap-group7 {
-    height: 2327px;
+    height: 1700px;
     position: relative;
     width: 2171px;
   }
@@ -264,7 +263,9 @@
   }
 
   .image-47 {
-    height: 473px;
+    box-shadow: 0 1px 20px 0 rgba(216, 212, 212, 0.817), 0 1px 10px 0 rgba(0, 0, 0, 0.749);
+    border-radius: 5px;
+    height: auto;
     left: 928px;
     object-fit: cover;
     position: absolute;
@@ -327,7 +328,7 @@
   }
 
   .rectangle-4655 {
-    background-color: beige;
+    background-color: rgba(243, 228, 160, 0.59);
     border: 1px solid;
     border-color: black;
     border-radius: 10px;
@@ -478,7 +479,7 @@
   }
 
   .rectangle-4652 {
-    background-color: beige;
+    background-color: rgba(243, 228, 160, 0.59);
     border: 1px solid;
     border-color: black;
     border-radius: 10px;
@@ -490,7 +491,7 @@
   }
 
   .rectangle-4656 {
-    background-color: beige;
+    background-color: rgba(243, 228, 160, 0.59);
     border: 1px solid;
     border-color: black;
     border-radius: 10px;
@@ -502,7 +503,7 @@
   }
 
   .rectangle-4653 {
-    background-color: beige;
+    background-color: rgba(243, 228, 160, 0.59);
     border: 1px solid;
     border-color: black;
     border-radius: 10px;
@@ -513,7 +514,7 @@
     width: 199px;
   }
   .rectangle-4654 {
-    background-color: beige;
+    background-color: rgba(243, 228, 160, 0.59);
     border: 1px solid;
     border-color: black;
     border-radius: 10px;

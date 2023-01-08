@@ -34,6 +34,7 @@
         margin: 10px 0 18px 0;
     }
     .book-card {
+        margin-bottom: 30px ;
         padding: 10px;
         width: 300px;
         height: 450px;
@@ -41,7 +42,7 @@
         border-style: solid;
         border-width: 1px;
         border-color: rgba(0, 0, 0, 0.212);
-        background-color: rgba(243, 228, 160, 0.201);
+        background: linear-gradient(180deg, #fbfbfb, rgba(249, 176, 29, 0.4) 230%);
         color: black;
     }
 
