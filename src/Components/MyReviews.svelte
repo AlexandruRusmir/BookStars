@@ -33,6 +33,7 @@
 </script>
 
 <body>
+    <div class="row">
     {#await getMyReviewsData() then data}
         {#each data.myReviews as review}
             <MyReview
@@ -40,6 +41,7 @@
             />
         {/each}
     {/await}
+</div>
 </body>
 
 <style>

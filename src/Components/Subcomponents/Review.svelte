@@ -64,7 +64,9 @@
 
 <style>
   @import url("https://fonts.googleapis.com/css?family=Poppins:200,400,600|Bitter:400,600italic,600|Playfair+Display:700");
-
+body{
+  font-family: Bitter;
+}
   .card {
     max-height: 100%;
     width: 800px;
@@ -125,3 +127,4 @@
   }
 
 </style>
+
