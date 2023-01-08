@@ -21,6 +21,7 @@
             responseData = data;
         }).catch((error) => {
             console.error('Error:', error);
+            loginError = true;
         });
         console.log(responseData);
         jwt_token.set(responseData.token ?? '');
@@ -69,7 +70,7 @@
                 {#if loginError}
                     <p class="error-message">
                         Error logging in. Please check your username and
-                        password
+                        password.
                     </p>
                 {/if}
                 <button class="mt-3" on:click={sendLoginRequest}>Login</button>

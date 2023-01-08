@@ -25,7 +25,7 @@
 
 <style>
     .bolded{
-        color: rgba(0, 0, 0, 0.686);
+        color: rgba(0, 0, 0, 0.629);
         font-weight: bold;
     }
     p{
@@ -41,7 +41,7 @@
         border-style: solid;
         border-width: 1px;
         border-color: rgba(0, 0, 0, 0.212);
-        background-color: rgba(243, 228, 160, 0.233);
+        background-color: rgba(243, 228, 160, 0.201);
         color: black;
     }
 

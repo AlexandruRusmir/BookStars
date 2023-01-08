@@ -8,8 +8,6 @@
     jwt_token.subscribe(jwt => jwtToken = jwt);
 
     const appreciateReviewRequest = async (likeOrNot) => {
-      console.log(2);
-      console.log(likeOrNot);
       let responseData;
         await fetch(`http://127.0.0.1:5000/appreciate_review/${review.id}`, {
             method: "POST",

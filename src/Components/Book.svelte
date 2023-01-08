@@ -1,33 +1,36 @@
 <script>
     // @ts-nocheck
-
-    import { bookMockData, reviewsMockData } from "../mockData/mockData";
-    import AddReview from "./AddReview.svelte";
-
-    // @ts-nocheck
-    import Reviews from "./Reviews.svelte";
-    export let params = {};
-
-    const getBookData = async () => {
-        let responseData = {
-            bookData: bookMockData,
-            reviews: reviewsMockData,
-        };
-        await fetch(`http://127.0.0.1:5000/book/${params.id}`, {
-            mode: "cors",
-        })
-            .then((response) => response.json())
+        import { jwt_token } from "../store";
+        import Reviews from './Reviews.svelte';
+        import { bookMockData, reviewsMockData } from '../mockData/mockData';
+        import AddReview from './AddReview.svelte';
+    
+        export let params = {};
+    
+        let jwtToken;
+        jwt_token.subscribe(jwt => jwtToken = jwt);
+        
+        const getBookData = async () => {
+            let responseData = {
+                bookData: bookMockData,
+                reviews: reviewsMockData
+            };
+            await fetch(`http://127.0.0.1:5000/book/${params.id}`, {
+                mode: 'cors',
+                headers: {
+                    'authorization-token': jwtToken,
+                    'Content-Type': 'application/json'
+                },
+            }).then((response) => response.json())
             .then((data) => {
                 responseData = data;
-            })
-            .catch((error) => {
-                console.error("Error:", error);
+            }).catch((error) => {
+                console.error('Error:', error);
             });
-
-        return responseData;
-    };
-</script>
-
+    
+            return responseData;
+        }
+    </script>
 <body>
     {#await getBookData() then data}
         <div class="d-flex align-items-center justify-content-center">
