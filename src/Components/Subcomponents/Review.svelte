@@ -29,17 +29,21 @@
         console.error("Error:", error);
       });
   };
-
 </script>
 
 <body>
   <div class="card">
-    <div class="row">
-      <div class="col-md-4">
+    <div class="row g-0">
+      <!-- <div class="col-md-4">
         <img class="img-fluid rounded-start" src={imageUrl} alt="Book 1" />
-      </div>
-      <div class="col-md-8">
-        <p class="text-review">
+      </div> -->
+      <!-- <div class="col-md-8"> -->
+      <div class="card-body">
+        <h3 class="card-title">
+          username
+          <!-- {username} -->
+        </h3>
+        <p class="card-text">
           {review.text}
         </p>
         <p>
@@ -47,17 +51,16 @@
         </p>
       </div>
       <div class="like-dislike">
-    <button class="btn" id="green" on:click={appreciateReviewRequest(true)}>
-      <i class="fa fa-thumbs-up fa-lg" aria-hidden="true" />
-      </button>
-    <button class="btn" id="red" on:click={appreciateReviewRequest(false)}>
-      <i class="fa fa-thumbs-down fa-lg" aria-hidden="true" />
-    </button>
-  </div>
-  </div>
-
-</body>
-
+        <button class="btn" id="green" on:click={appreciateReviewRequest(true)}>
+          <i class="fa fa-thumbs-up fa-lg" aria-hidden="true" />
+        </button>
+        <button class="btn" id="red" on:click={appreciateReviewRequest(false)}>
+          <i class="fa fa-thumbs-down fa-lg" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  </div></body
+>
 
 <style>
   @import url("https://fonts.googleapis.com/css?family=Poppins:200,400,600|Bitter:400,600italic,600|Playfair+Display:700");
@@ -76,23 +79,19 @@
     border: 0 solid;
   }
 
-  img {
-    /* align-items: center;
-    margin: 20px;
-    padding: 20px;  */
-    height: 200px;
-    /* width: 20%;
-    text-align: center; */
+  .like-dislike {
+    text-align: center;
   }
-.like-dislike{
-  text-align: center;
-}
   button {
     cursor: pointer;
     outline: 0;
     outline-color: rgb(3, 3, 3);
   }
-
+.btn{
+  background-color: rgba(161, 159, 159, 0.172);
+  border-color: rgba(0, 0, 0, 0.394);
+  box-shadow: 0 1px 3px 0 rgba(253, 251, 251, 0.46), 0 1px 2px 0 rgba(23, 22, 22, 0.755);
+}
   .btn:focus {
     outline: none;
   }
@@ -101,14 +100,16 @@
     color: green;
   }
 
-  #red:hover{
+  #red:hover {
     color: red;
   }
-  .text-review {
+  .card-text {
     margin-top: 20px;
   }
-
-
+  .card-title {
+    font-style: italic;
+    font-weight: bold;
+  }
 
   /* Variables */
 
