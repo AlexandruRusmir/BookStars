@@ -52,7 +52,7 @@
                 <input type="radio" id="star2" name="rating" value="2" on:click={changeReviewRating}/><label for="star2" title="2 star"></label>
                 <input type="radio" id="star1" name="rating" value="1" on:click={changeReviewRating}/><label for="star1" title="1 star"></label>
             </div>
-        </div>	
+        </div>  
         <div class="my-3">
             <label for="make-review-public">Make review public</label>
             <input 
@@ -65,7 +65,7 @@
             >
         </div>
         <div class="w-100">
-            <input class="mx-5 review-input-style" placeholder="Write your review comment" on:input={e => {reviewText = e.target.value}}>
+            <textarea class="review-input-style" placeholder="Write your review comment" on:input={e => {reviewText = e.target.value}}></textarea>
         </div>
 
         <div class="my-3">
@@ -83,9 +83,10 @@
     .starrating > label:before { 
     content: "\f005"; /* Star */
     margin: 2px;
-    font-size: 8em;
+    font-size: 2.3em;
     font-family: FontAwesome;
     display: inline-block; 
+    margin-bottom: 30px;
     }
 
     .starrating > label
@@ -103,8 +104,24 @@
         font-family: Bitter;
         background-color: none;
     }
-
     .review-input-style {
+        margin: 10px 50px 30px 0;
+        height: 100%;
         width: 90%;
+    }
+
+    button{
+        font-size: 15px;
+        border-radius: 50px;
+        height: 30px;
+        width: 220px;
+        border: none;
+        background-color:rgb(243, 228, 160);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.466), 0 1px 2px 0 rgba(0, 0, 0, 0.322);
+    }
+
+    textarea::placeholder{
+        font-size: 14px;
+        font-style: italic;
     }
 </style>
