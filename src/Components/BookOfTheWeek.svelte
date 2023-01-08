@@ -1,7 +1,11 @@
 <script>
 // @ts-nocheck
+    import { jwt_token } from "../store";
 
     import CountdownTimer from "./Subcomponents/CountdownTimer.svelte";
+
+    let jwtToken;
+    jwt_token.subscribe(jwt => jwtToken = jwt);
 
     const getBookOfTheWeekInfo = async () => {
         let responseData = JSON.parse(`{
@@ -11,6 +15,10 @@
         }`);
         await fetch(`http://127.0.0.1:5000/book_of_the_week`, {
             mode: 'cors',
+            headers: {
+                    'authorization-token': jwtToken,
+                    'Content-Type': 'application/json'
+                },
         }).then((response) => response.json())
         .then((data) => {
             responseData = data;
@@ -27,13 +35,13 @@
         <div class="d-flex flex-align-center justify-content-center my-5">
             <div class="countdown-timer">
                     <CountdownTimer
-                        endTime={data.time}
+                        endTime={data.bookData.time}
                     />
             </div>
         </div>
         <div class="d-flex flex-align-center justify-content-center mt-5 wait-for-book">
-            The book of this week is &nbsp;<a class="book-title" href="#/book_details/{data.bookId}">{data.name}</a>.
-            {#if data.sendMessage == false}
+            The book of this week is &nbsp;<a class="book-title" href="#/book_details/{data.bookData.bookId}">{data.bookData.name}</a>.
+            {#if data.bookData.sendMessage == false}
                     Read it and chat about it when the timer ends!
             {/if}
         </div>

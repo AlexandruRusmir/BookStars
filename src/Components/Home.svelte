@@ -1,7 +1,12 @@
 
 <script>
-  import { topReviewsMockData, listOfBooksMockData } from "../mockData/mockData";
+// @ts-nocheck
+  import { push } from "svelte-spa-router";
 
+  import { topReviewsMockData, listOfBooksMockData } from "../mockData/mockData";
+  import { onMount } from 'svelte';
+  let carouselBookIndex = 0;
+  let booksArray = [];
   const getTopReviews = async () => {
       let responseData = {topReviews: topReviewsMockData};
       await fetch(`http://127.0.0.1:5000/top_reviews`, {
@@ -29,6 +34,31 @@
 
         return responseData;
     };
+
+  const showNextBook = () => {
+    if (carouselBookIndex === booksArray.length - 1) {
+      carouselBookIndex = 0;
+      return;
+    }
+    carouselBookIndex ++;
+  }
+
+  const showPreviousBook = () => {
+    if (carouselBookIndex === 0) {
+      carouselBookIndex = booksArray.length - 1;
+      return;
+    }
+    carouselBookIndex --;
+  }
+
+  const goToBookPage = (pageId) => {
+    push(`#/book_details/${pageId}`)
+  }
+
+  onMount(async () => {
+    const allBooks = await getBooks();
+    booksArray = allBooks.listOfBooks;
+  })
 </script>
 
 <body>
@@ -73,17 +103,6 @@
             <div class="f-item">
               <div class="overlap-group">
                 <div class="rectangle-170" />
-                <!-- <div class="group-8476">
-                  <img
-                    class="ellipse-217"
-                    src="\src\img\rating-3@2x.png"
-                    alt="Ellipse 217"
-                  /><img
-                    class="rating"
-                    src="\src\img\rating-3@2x.png"
-                    alt="Rating"
-                  />
-                </div> -->
               </div>
             </div>
             <div class="f-item">
@@ -108,24 +127,26 @@
           src="\src\img\recent-reviews@1x.jpg"
           alt="Recent Reviews"
         />
-        <a href="home-page.html">
+        {#await getBooks() then data}
           <button
+            on:click={showPreviousBook}
             ><img
               class="left-3"
               src="\src\img\left-3@1x.jpg"
               alt="left 3"
             /></button
           >
-        </a>
         <button
+          on:click={showNextBook}
           ><img
             class="left-4"
             src="\src\img\left-4@1x.jpg"
             alt="left 4"
           /></button>
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img class="image-47" src="\src\img\image-47@2x.png" alt="image 47" />
-
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <img on:click={goToBookPage(data.listOfBooks[carouselBookIndex].id)} class="image-47 pointer-on-hover" src={data.listOfBooks[carouselBookIndex].imageUrl} alt="image 47" />
+        {/await}
         <p class="in-doanes-debut-nov poppins-normal-shark-20px">
           {data.topReviews[0].text}
         </p>
@@ -137,7 +158,7 @@
         </p>
         <img class="rating-2" src="\src\img\rating@2x.png" alt="Rating" /><img
           class="rating-3"
-          src="\src\img\rating-1@2x.png"
+          src="\src\img\rating@2x.png"
           alt="Rating"
         /><img class="rating-4" src="\src\img\rating-2@2x.png" alt="Rating" />
       {/await}
@@ -149,6 +170,9 @@
   @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
   @import url("https://fonts.googleapis.com/css?family=Poppins:200,400,600|Bitter:400,600italic,600|Playfair+Display:700");
 
+  .pointer-on-hover:hover {
+    cursor: pointer;
+  }
 
   .title-explore {
     font-family: var(--font-family-bitter);

@@ -3,6 +3,7 @@
 
     import { jwt_token } from "../../store";
     import { bookMockData, reviewsMockData } from "../../mockData/mockData";
+    import Stars from "./Stars.svelte";
 
     let jwtToken;
     jwt_token.subscribe((jwt) => (jwtToken = jwt));
@@ -34,8 +35,8 @@
 </script>
 
 <body>
-    <div class="col-sm-6">
     {#await getBookData() then data}
+    <div class="d-flex align-items-center justify-content-center">
         <div class="card">
             <div class="row">
                 <div class="col-md-4">
@@ -43,25 +44,26 @@
                         class="img-fluid"
                         src={data.bookData.imageUrl}
                         alt="Book 1"
-                        height="200px"
                     />
                 </div>
                 <div class="col-md-8">
                     <p class="card-title">"{data.bookData.name}"</p>
                     <p>
-                        My message: {myReview.text}
+                        {myReview.text}
                     </p>
                     <p>
-                        Rating: {myReview.rating}
+                        <Stars
+                            rating={myReview.rating}
+                        />
                     </p>
                     <p>
-                        My Review score: {myReview.score}
+                        Review score: {myReview.score}
                     </p>
                 </div>
             </div>
         </div>
+    </div>
     {/await}
-</div>
 </body>
 
 <style>
@@ -74,7 +76,7 @@
         justify-content: center;
         align-items: center;
         max-height: 100%;
-        width: 50%;
+        width: 60%;
         margin-bottom: 3rem;
         border-radius: 1.5rem;
         padding: 2rem;

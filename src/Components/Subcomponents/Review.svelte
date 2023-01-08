@@ -1,6 +1,7 @@
 <script>
   // @ts-nocheck
   import { jwt_token } from "../../store";
+    import Stars from "./Stars.svelte";
   export let imageUrl;
   export let review;
 
@@ -43,11 +44,13 @@
           username
           <!-- {username} -->
         </h3>
+        <p>
+          <Stars 
+            rating={review.rating}
+          />
+        </p>
         <p class="card-text">
           {review.text}
-        </p>
-        <p>
-          {review.rating}
         </p>
       </div>
       <div class="like-dislike">
