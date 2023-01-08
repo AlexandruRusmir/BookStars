@@ -11,6 +11,7 @@
   import Login from "./Components/Login.svelte";
   import Register from "./Components/Register.svelte";
   import MyReviews from "./Components/MyReviews.svelte";
+    import BookOfTheWeek from "./Components/BookOfTheWeek.svelte";
 
   const routes = {
     "/": Home,
@@ -19,6 +20,7 @@
     "/login": Login,
     "/register": Register,
     "/my_reviews": MyReviews,
+    "/book_of_the_week": BookOfTheWeek,
     
     "*": NotFound,
   };

@@ -1,5 +1,9 @@
 <script>
   import { topReviewsMockData, listOfBooksMockData } from "../mockData/mockData";
+  import { onMount } from 'svelte';
+
+  let carouselBookIndex = 0;
+  let booksArray = [];
 
   const getTopReviews = async () => {
       let responseData = {topReviews: topReviewsMockData};
@@ -28,6 +32,29 @@
 
         return responseData;
     };
+
+  const showNextBook = () => {
+    if (carouselBookIndex === booksArray.length - 1) {
+      carouselBookIndex = 0;
+      return;
+    }
+
+    carouselBookIndex ++;
+  }
+
+  const showPreviousBook = () => {
+    if (carouselBookIndex === 0) {
+      carouselBookIndex = booksArray.length - 1;
+      return;
+    }
+
+    carouselBookIndex --;
+  }
+
+  onMount(async () => {
+    const allBooks = await getBooks();
+    booksArray = allBooks.listOfBooks;
+  })
 </script>
 
 <body>
@@ -111,23 +138,23 @@
           src="\src\img\recent-reviews@1x.jpg"
           alt="Recent Reviews"
         />
-        <a href="home-page.html">
           <button
+          on:click={showPreviousBook}
             ><img
               class="left-3"
               src="\src\img\left-3@1x.jpg"
               alt="left 3"
             /></button
           >
-        </a>
         <button
+          on:click={showNextBook}
           ><img
             class="left-4"
             src="\src\img\left-4@1x.jpg"
             alt="left 4"
           /></button>
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img class="image-47" src="\src\img\image-47@2x.png" alt="image 47" />
+        <img class="image-47" src={booksArray[carouselBookIndex].imageUrl} alt="image 47" />
 
         <p class="in-doanes-debut-nov poppins-normal-shark-20px">
           {data.topReviews[0].text}

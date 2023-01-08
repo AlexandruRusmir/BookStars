@@ -47,7 +47,7 @@
               <a class="nav-link" href="#/all_books">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#/forum">Forum</a>
+              <a class="nav-link" href="#/book_of_the_week">Forum</a>
             </li>
             {#if userHasJwtToken}
               <li>
