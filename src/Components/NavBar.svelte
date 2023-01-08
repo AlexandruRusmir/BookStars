@@ -14,7 +14,11 @@
   });
 
   const goToLoginPage = () => {
-    push('#/login')
+    push('#/login');
+  }
+
+  const goToMyReviewsPage = () => {
+    push('#/my_reviews');
   }
 
   const logout = () => {
@@ -45,6 +49,11 @@
             <li class="nav-item">
               <a class="nav-link" href="#/forum">Forum</a>
             </li>
+            {#if userHasJwtToken}
+              <li>
+                <a class="nav-link" href="#/my_reviews">My Reviews</a>
+              </li>
+            {/if}
             <li>
               {#if !userHasJwtToken}
                 <button type="submit" class="btn btn-link btn-logout" on:click={goToLoginPage}
@@ -160,7 +169,7 @@
     padding: 6 6 6 0;
     border: none;
     margin-top: none;
-    margin-right: 16px;
+    margin-right: 6px;
     font-size: 17px;
     /* width: 250px; */
   }
