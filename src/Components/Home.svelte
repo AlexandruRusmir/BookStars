@@ -1,6 +1,8 @@
 <script>
+  import { topReviewsMockData } from "../mockData/mockData";
+
   const getTopReviews = async () => {
-      let responseData = {};
+      let responseData = {topReviews: topReviewsMockData};
       await fetch(`http://127.0.0.1:5000/top_reviews`, {
           mode: 'cors',
       }).then((response) => response.json())
@@ -9,7 +11,7 @@
       }).catch((error) => {
           console.error('Error:', error);
       });
-
+console.log(responseData);
       return responseData;
   };
 </script>

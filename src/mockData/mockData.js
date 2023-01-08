@@ -208,3 +208,33 @@ export const myReviewMockData = {
   "text": "Very decent book.",
   "userId": 1
 }
+
+export const topReviewsMockData = [
+  {
+    "bookId": 1,
+    "id": 1,
+    "isPublic": true,
+    "rating": 3,
+    "score": 0.0,
+    "text": "Very decent book.",
+    "userName": "alex"
+  },
+  {
+    "bookId": 2,
+    "id": 2,
+    "isPublic": true,
+    "rating": 1,
+    "score": 0.0,
+    "text": "Didn't quite like it",
+    "userName": "John Doe"
+  },
+  {
+    "bookId": 3,
+    "id": 3,
+    "isPublic": true,
+    "rating": 5,
+    "score": 0.0,
+    "text": "Amazing book!",
+    "userName": "Jane Doe"
+  }
+]
