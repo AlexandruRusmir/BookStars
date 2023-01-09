@@ -1,7 +1,6 @@
 <script>
     import Review from "./Subcomponents/Review.svelte";
 
-    export let imageUrl;
     export let reviews;
 </script>
 
@@ -12,7 +11,6 @@
             {#each reviews as review}
               <Review 
                 review={review}
-                imageUrl={imageUrl}
               />
             {/each}
           </div>

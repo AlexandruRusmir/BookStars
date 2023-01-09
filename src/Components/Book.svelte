@@ -29,7 +29,7 @@
             }).catch((error) => {
                 console.error('Error:', error);
             });
-    console.log(responseData);
+
             return responseData;
         }
     </script>
@@ -95,9 +95,11 @@
                     </p>
                 </div>
                 <div class="sppb-divider sppb-divider-border " />
-                <div class="my-5">
-                    <AddReview bookId={data.bookData.id} />
-                </div>
+                {#if data.bookData.userHasWrittenReview === false}
+                    <div class="my-5">
+                        <AddReview bookId={data.bookData.id} />
+                    </div>
+                {/if}
                 <div>
                     <Reviews
                         imageUrl={data.bookData.imageUrl}

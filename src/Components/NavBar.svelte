@@ -127,7 +127,7 @@
     display: flex;
     height: 90px;
     justify-content: flex-start;
-    margin-left: 350px;
+    margin-left: 30%;
     width: 900px;
     /* min-width: 700px; */
     padding: 31px 20px;

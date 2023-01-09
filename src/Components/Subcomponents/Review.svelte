@@ -1,12 +1,15 @@
 <script>
   // @ts-nocheck
   import { jwt_token } from "../../store";
-    import Stars from "./Stars.svelte";
-  export let imageUrl;
+  import { onMount } from "svelte";
+  import Stars from "./Stars.svelte";
   export let review;
 
   let jwtToken;
   jwt_token.subscribe((jwt) => (jwtToken = jwt));
+
+  let dislikedByUser;
+  let likedByUser;
 
   const appreciateReviewRequest = async (likeOrNot) => {
     let responseData;
@@ -30,6 +33,16 @@
         console.error("Error:", error);
       });
   };
+
+  onMount(() => {
+    console.log(review);
+    if (review.dislikedByUser == true) {
+      dislikedByUser = true;
+    }
+    if (review.likedByUser == true) {
+      likedByUser = true;
+    }
+  })
 </script>
 
 <body>
@@ -41,7 +54,7 @@
       <!-- <div class="col-md-8"> -->
       <div class="card-body">
         <h3 class="card-title">
-          username
+          {review.userName}
           <!-- {username} -->
         </h3>
         <p>
@@ -54,12 +67,25 @@
         </p>
       </div>
       <div class="like-dislike">
-        <button class="btn" id="green" on:click={appreciateReviewRequest(true)}>
-          <i class="fa fa-thumbs-up fa-lg" aria-hidden="true" />
-        </button>
-        <button class="btn" id="red" on:click={appreciateReviewRequest(false)}>
-          <i class="fa fa-thumbs-down fa-lg" aria-hidden="true" />
-        </button>
+        {#if likedByUser == true}
+          <button class="btn like-button is-liked" on:click={async () => {await appreciateReviewRequest(true); likedByUser=true; dislikedByUser=false;}}>
+            <i class="fa fa-thumbs-up fa-lg" aria-hidden="true" />
+          </button>
+        {:else}
+          <button class="btn like-button" on:click={async () => {await appreciateReviewRequest(true); likedByUser=true; dislikedByUser=false;}}>
+            <i class="fa fa-thumbs-up fa-lg" aria-hidden="true" />
+          </button>
+        {/if}
+
+        {#if dislikedByUser == true}
+          <button class="btn dislike-button is-disliked" on:click={async () => {await appreciateReviewRequest(false); dislikedByUser=true; likedByUser=false;}}>
+            <i class="fa fa-thumbs-down fa-lg" aria-hidden="true" />
+          </button>
+        {:else}
+          <button class="btn dislike-button" on:click={async () => {await appreciateReviewRequest(false); dislikedByUser=true; likedByUser=false;}}>
+            <i class="fa fa-thumbs-down fa-lg" aria-hidden="true" />
+          </button>
+        {/if}
       </div>
     </div>
   </div></body
@@ -101,13 +127,22 @@ body{
     outline: none;
   }
 
-  #green:hover {
-    color: green;
+  .is-liked {
+    color: rgb(1, 187, 1);
   }
 
-  #red:hover {
-    color: red;
+  .is-disliked {
+    color: rgb(221, 11, 11);
   }
+
+  .like-button:hover {
+    color: rgb(0, 196, 0);
+  }
+
+  .dislike-button:hover {
+    color: rgb(255, 0, 0);
+  }
+
   .card-text {
     margin-top: 20px;
   }
