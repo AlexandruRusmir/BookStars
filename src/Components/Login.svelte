@@ -8,7 +8,6 @@
 
     const sendLoginRequest = async () => {
         let responseData;
-        console.log('Basic ' + btoa(name + ':' + password));
         await fetch(`http://127.0.0.1:5000/login`, {
             method: 'POST',
             mode: 'cors',
@@ -23,7 +22,7 @@
             console.error('Error:', error);
             loginError = true;
         });
-        console.log(responseData);
+
         jwt_token.set(responseData.token ?? '');
         push('#/')
     };

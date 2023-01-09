@@ -1,6 +1,7 @@
 <script>
 // @ts-nocheck
     import { jwt_token } from "../store";
+    import BookOfTheWeekChat from "./Subcomponents/BookOfTheWeekChat.svelte";
 
     import CountdownTimer from "./Subcomponents/CountdownTimer.svelte";
 
@@ -41,11 +42,15 @@
         </div>
         <div class="d-flex flex-align-center justify-content-center mt-5 wait-for-book">
             The book of this week is &nbsp;<a class="book-title" href="#/book_details/{data.bookData.bookId}">{data.bookData.name}</a>.
-            {#if data.bookData.sendMessage == false}
+            {#if data.bookData.sendMessage === false}
                     Read it and chat about it when the timer ends!
             {/if}
         </div>
-
+        {#if data.bookData.sendMessage === true}
+            <div>
+                <BookOfTheWeekChat/>
+            </div>
+        {/if}
     {/await}
 </body>
 

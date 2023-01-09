@@ -238,3 +238,21 @@ export const topReviewsMockData = [
     "userName": "Jane Doe"
   }
 ]
+
+export const chatMessagesMockData = [
+  {
+    "message": "What a nice book this is.",
+    "userId": 1,
+    "userName": "alex"
+  },
+  {
+    "message": "I love this book",
+    "userId": 1,
+    "userName": "alex"
+  },
+  {
+    "message": "This book sucks",
+    "userId": 1,
+    "userName": "alex"
+  }
+]

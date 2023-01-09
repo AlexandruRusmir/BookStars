@@ -35,7 +35,6 @@
   };
 
   onMount(() => {
-    console.log(review);
     if (review.dislikedByUser == true) {
       dislikedByUser = true;
     }
