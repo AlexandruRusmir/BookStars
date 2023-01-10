@@ -46,11 +46,11 @@
                     Read it and chat about it when the timer ends!
             {/if}
         </div>
-        {#if data.bookData.sendMessage === true}
+        <!-- {#if data.bookData.sendMessage === true} -->
             <div>
                 <BookOfTheWeekChat/>
             </div>
-        {/if}
+        <!-- {/if} -->
     {/await}
 </body>
 
