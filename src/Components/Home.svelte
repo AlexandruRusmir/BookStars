@@ -99,11 +99,11 @@
       {#await getTopReviews() then data}
         <div class="component-frame">
           <div class="f">
-            <div class="f-item">
-              <div class="overlap-group">
-                <div class="rectangle-170" />
-              </div>
-            </div>
+            <div class="f-item"> 
+              <!-- <div class="overlap-group"> -->
+                <!-- <div class="rectangle-170" /> -->
+              <!-- </div> -->
+            </div> 
             <div class="f-item">
               <div class="overlap-group1">
                 <div class="card-name">{data.topReviews[0].userName}</div>
@@ -146,13 +146,13 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <img on:click={goToBookPage(data.listOfBooks[carouselBookIndex].id)} class="image-47 pointer-on-hover" src={data.listOfBooks[carouselBookIndex].imageUrl} alt="image 47" />
         {/await}
-        <p class="in-doanes-debut-nov poppins-normal-shark-20px">
+        <p class="text-card1 poppins-normal-shark-20px">
           {data.topReviews[0].text}
         </p>
-        <p class="the-hype-around-this poppins-normal-shark-20px">
+        <p class="text-card2 poppins-normal-shark-20px">
           {data.topReviews[1].text}
         </p>
-        <p class="you-are-the-dead poppins-normal-shark-20px">
+        <p class="text-card3 poppins-normal-shark-20px">
           {data.topReviews[2].text}
         </p>
         <img class="rating-2" src="\src\img\rating@2x.png" alt="Rating" /><img
@@ -310,18 +310,11 @@
     top: 127px;
     width: 127px;
   }
-  /* 
-  .rectangle-4621 {
-    height: 473px; 
-    left: 508px;
-    position: absolute;
-    top: 10px;
-    width: 1160px;
-  } */
+ 
 
   .rating-3 {
     height: 28px;
-    left: 1565px;
+    left: 1460px;
     position: absolute;
     top: 1200px;
     width: 166px;
@@ -364,7 +357,7 @@
     align-items: flex-start;
     border: 1px none;
     display: flex;
-    gap: 80px;
+    gap: 50px;
     margin-bottom: -8.96px;
     width: fit-content;
   }
@@ -375,30 +368,6 @@
     min-width: 400px;
   }
 
-  .overlap-group {
-    height: 459px;
-    position: relative;
-    width: 400px;
-  }
-
-  .rectangle-170 {
-    background-color: var(--concrete);
-    border: 1px none;
-    border-radius: 43px;
-    box-shadow: 20px 20px 50px #d2d2d2, -20px -20px 50px #ffffff;
-    height: 400px;
-    left: 0;
-    position: absolute;
-    top: 59px;
-    width: 400px;
-  }
-
-  /* .rating {
-    height: 28px;
-    margin-left: 43px;
-    margin-top: -1197px;
-    width: 166px;
-  } */
   .overlap-group3 {
     align-items: flex-start;
     background-color: var(--concrete);
@@ -445,31 +414,14 @@
     letter-spacing: 0;
     line-height: normal;
     text-align: center;
-    width: 196px;
+    width: 180px;
+    margin-top: 15px;
   }
 
-  /* .group-8476 {
-    align-items: flex-start;
-    display: flex;
-    height: 382px;
-    justify-content: flex-end;
-    left: 38px;
-    min-width: 333px;
-    position: absolute;
-    top: 0;
-  }
 
-  .ellipse-217 {
-    height: 120px;
-    margin-left: 6040px;
-    margin-top: -1270px;
-    object-fit: cover;
-    width: 120px;
-  } */
-
-  .you-are-the-dead {
+  .text-card3 {
     font-family: Poppins;
-    left: 1511px;
+    left: 1410px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -527,15 +479,15 @@
 
   .rating-4 {
     height: 28px;
-    left: 1084px;
+    left: 1010px;
     position: absolute;
     top: 1200px;
     width: 166px;
   }
 
-  .the-hype-around-this {
+  .text-card2{
     font-family: Poppins;
-    left: 542px;
+    left: 510px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -544,9 +496,9 @@
     width: 271px;
   }
 
-  .in-doanes-debut-nov {
+  .text-card1 {
     font-family: Poppins;
-    left: 1032px;
+    left: 960px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -567,7 +519,7 @@
 
   .rating-2 {
     height: 28px;
-    left: 594px;
+    left: 560px;
     position: absolute;
     top: 1200px;
     width: 166px;
@@ -592,6 +544,7 @@
     --font-family-bitter: "Bitter";
     --font-family-poppins: "Poppins";
   }
+
 
 </style>
 
