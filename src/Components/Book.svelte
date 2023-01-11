@@ -95,11 +95,11 @@
                     </p>
                 </div>
                 <div class="sppb-divider sppb-divider-border " />
-                {#if data.bookData.userHasWrittenReview === false}
+                <!-- {#if data.bookData.userHasWrittenReview === false} -->
                     <div class="my-5">
                         <AddReview bookId={data.bookData.id} />
                     </div>
-                {/if}
+                <!-- {/if} -->
                 <div>
                     <Reviews
                         imageUrl={data.bookData.imageUrl}

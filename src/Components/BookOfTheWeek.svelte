@@ -9,11 +9,12 @@
     jwt_token.subscribe(jwt => jwtToken = jwt);
 
     const getBookOfTheWeekInfo = async () => {
-        let responseData = JSON.parse(`{
-            "name": "The Power of Now",
-            "sendMessage": false,
-            "time": 1673215200.0
-        }`);
+        let responseData = {bookData: {
+		bookId: 2,
+		name: "How to win friends and influence people",
+		sendMessage: false,
+		time: 1673820000.0
+	}};
         await fetch(`http://127.0.0.1:5000/book_of_the_week`, {
             mode: 'cors',
             headers: {
@@ -26,7 +27,7 @@
         }).catch((error) => {
             console.error('Error:', error);
         });
-
+console.log(responseData);
         return responseData;
     }
 </script>
